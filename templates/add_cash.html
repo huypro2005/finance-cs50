@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+
+    <form action="/add_cash" method="post">
+        <input type="number" name="cash" placeholder="Cash"> <br>
+        <button type="submit">Add Cash</button>
+    </form>
+   
+{% endblock %}

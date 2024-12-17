@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}
+    Bought
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+                <td>Symbol</td>
+                <td>Shares</td>
+                <td>Price</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in datas %}
+                {% if data['shares'] >0 %}
+                    <tr>
+                        <td>{{data['symbol']}}</td>
+                        <td>{{data['shares']}}</td>
+                        <td>{{(data['price'])}}</td>
+                        <td>{{data['total_price']}}</td>
+                    </tr>
+                {% endif %}
+            {%endfor%}
+            {%if cash%}
+            <tr>
+                <td colspan="3">Cash</td>
+                <td colspan="4">{{cash}}</td>
+            </tr>
+            {%endif%}
+            {%if total%}
+            <tr>
+                <td colspan="3">Total</td>
+                <td colspan="4">{{total}}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}
